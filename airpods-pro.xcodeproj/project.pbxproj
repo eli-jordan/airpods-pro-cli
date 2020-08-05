@@ -28,6 +28,7 @@
 		9F1F78E424D9CEEA00368035 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		9F1F78EB24D9CF6500368035 /* IOBluetooth-Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IOBluetooth-Private.h"; sourceTree = "<group>"; };
 		9F1F790024D9E3E800368035 /* airpods-pro-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "airpods-pro-Bridging-Header.h"; sourceTree = "<group>"; };
+		9F6B5F5124DB63D0000B238B /* airpods-pro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "airpods-pro.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +46,7 @@
 		9F1F78D824D9CEEA00368035 = {
 			isa = PBXGroup;
 			children = (
+				9F6B5F5124DB63D0000B238B /* airpods-pro.entitlements */,
 				9F1F78FD24D9E36C00368035 /* src */,
 				9F1F78E224D9CEEA00368035 /* Products */,
 			);
@@ -257,6 +259,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "airpods-pro.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DR2A97FQ8L;
 				DYLIB_COMPATIBILITY_VERSION = "";
@@ -264,6 +267,7 @@
 				DYLIB_INSTALL_NAME_BASE = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				LD_RUNPATH_SEARCH_PATHS = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "src/airpods-pro-Bridging-Header.h";
@@ -277,6 +281,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "airpods-pro.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DR2A97FQ8L;
 				DYLIB_COMPATIBILITY_VERSION = "";
@@ -284,6 +290,7 @@
 				DYLIB_INSTALL_NAME_BASE = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				LD_RUNPATH_SEARCH_PATHS = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "src/airpods-pro-Bridging-Header.h";

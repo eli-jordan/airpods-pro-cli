@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - master
+    tags-ignore:
+      - '*'
+  push:
+    branches:
+      - master
+    tags-ignore:
+      - '*'
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Run build
+        run: xcodebuild -project airpods-pro.xcodeproj -scheme airpods-pro -configuration Release -derivedDataPath .build-output
+      - name: Save the binary as a artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: airpods-pro
+          path: .build-output/Build/Products/Release/airpods-pro
