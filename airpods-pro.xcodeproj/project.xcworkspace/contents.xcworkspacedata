@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/elias.jordan/code/airpod-mode-switcher/airpod-mode-switcher/airpods-pro.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>
