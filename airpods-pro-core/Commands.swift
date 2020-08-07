@@ -25,8 +25,8 @@ enum ListeningMode: String, CaseIterable, ExpressibleByArgument {
    // Convert this listening mode into the UInt8 representation
    func codeValue() -> UInt8 {
       switch self {
-         case .NoiseCancellation: return 2
          case .Off: return 1
+         case .NoiseCancellation: return 2
          case .Transparency: return 3
       }
    }
@@ -45,7 +45,8 @@ struct AirPodProDevice {
    let name: String
    let mode: ListeningMode
    let state: ConnectionState
-
+   
+   // Create a new AirPodProDevice instance based on the provided IOBlueToothDevice
    static func from(_ device: IOBluetoothDevice) -> AirPodProDevice {
       let state = device.isConnected() ? ConnectionState.Connected : ConnectionState.Disconnected
       return AirPodProDevice(
@@ -113,8 +114,37 @@ func runSetModeCommand(deviceName: String, mode: ListeningMode) {
    if device == nil {
       print("There are no AirpodPro devices named \(deviceName) available")
    } else {
-      device!.underlying.listeningMode = mode.codeValue()
+      turnOnBluetoothIfNeeded()
+      let btDevice = device!.underlying
+      if(device!.state == .Disconnected) {
+         btDevice.openConnection()
+      }
+      btDevice.listeningMode = mode.codeValue()
    }
+}
+
+func turnOnBluetoothIfNeeded() {
+    guard let bluetoothHost = IOBluetoothHostController.default(),
+    bluetoothHost.powerState != kBluetoothHCIPowerStateON else { return }
+
+    // Definitely not App Store safe
+    if let iobluetoothClass = NSClassFromString("IOBluetoothPreferences") as? NSObject.Type {
+        let obj = iobluetoothClass.init()
+        let selector = NSSelectorFromString("setPoweredOn:")
+        if (obj.responds(to: selector)) {
+            obj.perform(selector, with: 1)
+        }
+    }
+
+    var timeWaited : UInt32 = 0
+    let interval : UInt32 = 200000 // in microseconds
+    while (bluetoothHost.powerState != kBluetoothHCIPowerStateON) {
+        usleep(interval)
+        timeWaited += interval
+        if (timeWaited > 5000000) {
+            exit(-2)
+        }
+    }
 }
 
 /**
@@ -140,8 +170,9 @@ enum OutputFormat: String, CaseIterable, ExpressibleByArgument {
 /**
  * Defines the CLI, and delegates command execution to the above handlers.
  */
-struct CommandParser: ParsableCommand {
-   static let configuration = CommandConfiguration(
+public struct AirpodsProCommandParser: ParsableCommand {
+   public init() { }
+   public static let configuration = CommandConfiguration(
       commandName: "airpods-pro",
       abstract: "Control available AirPod Pro devices",
       subcommands: [List.self, SetMode.self]
@@ -177,4 +208,3 @@ struct CommandParser: ParsableCommand {
    }
 }
 
-CommandParser.main()

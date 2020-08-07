@@ -19,3 +19,8 @@ SUBCOMMANDS:
 
   See 'airpods-pro help <subcommand>' for detailed help.
 ```
+
+## Credits
+
+* The code used to inspect / set the listening mode of an AirPods Pro device was taken from [NoiseBuddy](https://github.com/insidegui/NoiseBuddy)
+* The code to ensure bluetooth is on, and to connect to the selected device was taken from [BluetoothConnector](https://github.com/lapfelix/BluetoothConnector)

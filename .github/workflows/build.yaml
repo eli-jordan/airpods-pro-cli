@@ -18,6 +18,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Run tests
+        run: xcodebuild -project airpods-pro.xcodeproj -scheme airpods-pro-core-tests test
       - name: Run build
         run: xcodebuild -project airpods-pro.xcodeproj -scheme airpods-pro -configuration Release -derivedDataPath .build-output
       - name: Save the binary as a artifact

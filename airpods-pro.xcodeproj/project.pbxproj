@@ -7,12 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9F1F78E524D9CEEA00368035 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1F78E424D9CEEA00368035 /* main.swift */; };
-		9F1F790324D9E5C800368035 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 9F1F790224D9E5C800368035 /* ArgumentParser */; };
+		9F4ADA5A24DC96A9009CC517 /* airpods_pro_core.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F4ADA5824DC96A9009CC517 /* airpods_pro_core.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9F4ADA6124DC9799009CC517 /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4ADA6024DC9799009CC517 /* Commands.swift */; };
+		9F4ADA6324DC97C3009CC517 /* IOBluetooth-Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F4ADA6224DC97C3009CC517 /* IOBluetooth-Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9F4ADA6624DC9A29009CC517 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 9F4ADA6524DC9A29009CC517 /* ArgumentParser */; };
+		9F4ADA7724DC9CC1009CC517 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4ADA7624DC9CC1009CC517 /* main.swift */; };
+		9F4ADA8524DCA44B009CC517 /* airpods_pro_core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F4ADA5624DC96A9009CC517 /* airpods_pro_core.framework */; };
+		9F4ADA9924DCA7AB009CC517 /* CommandsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4ADA9824DCA7AB009CC517 /* CommandsTest.swift */; };
+		9F4ADA9B24DCA7AB009CC517 /* airpods_pro_core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F4ADA5624DC96A9009CC517 /* airpods_pro_core.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9F4ADA8224DCA2D9009CC517 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F1F78D924D9CEEA00368035 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F4ADA5524DC96A9009CC517;
+			remoteInfo = "airpods-pro-core";
+		};
+		9F4ADA9C24DCA7AB009CC517 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F1F78D924D9CEEA00368035 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F4ADA5524DC96A9009CC517;
+			remoteInfo = "airpods-pro-core";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
-		9F1F78DF24D9CEEA00368035 /* CopyFiles */ = {
+		9F4ADA7224DC9CC1009CC517 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -24,19 +47,40 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9F1F78E124D9CEEA00368035 /* airpods-pro */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "airpods-pro"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9F1F78E424D9CEEA00368035 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		9F1F78EB24D9CF6500368035 /* IOBluetooth-Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IOBluetooth-Private.h"; sourceTree = "<group>"; };
-		9F1F790024D9E3E800368035 /* airpods-pro-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "airpods-pro-Bridging-Header.h"; sourceTree = "<group>"; };
-		9F6B5F5124DB63D0000B238B /* airpods-pro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "airpods-pro.entitlements"; sourceTree = "<group>"; };
+		9F4ADA5624DC96A9009CC517 /* airpods_pro_core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = airpods_pro_core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F4ADA5824DC96A9009CC517 /* airpods_pro_core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = airpods_pro_core.h; sourceTree = "<group>"; };
+		9F4ADA5924DC96A9009CC517 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F4ADA6024DC9799009CC517 /* Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
+		9F4ADA6224DC97C3009CC517 /* IOBluetooth-Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IOBluetooth-Private.h"; sourceTree = "<group>"; };
+		9F4ADA7424DC9CC1009CC517 /* airpods-pro */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "airpods-pro"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F4ADA7624DC9CC1009CC517 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		9F4ADA9624DCA7AB009CC517 /* airpods-pro-core-tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "airpods-pro-core-tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F4ADA9824DCA7AB009CC517 /* CommandsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandsTest.swift; sourceTree = "<group>"; };
+		9F4ADA9A24DCA7AB009CC517 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9F1F78DE24D9CEEA00368035 /* Frameworks */ = {
+		9F4ADA5324DC96A9009CC517 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F1F790324D9E5C800368035 /* ArgumentParser in Frameworks */,
+				9F4ADA6624DC9A29009CC517 /* ArgumentParser in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F4ADA7124DC9CC1009CC517 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F4ADA8524DCA44B009CC517 /* airpods_pro_core.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F4ADA9324DCA7AB009CC517 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F4ADA9B24DCA7AB009CC517 /* airpods_pro_core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,52 +90,130 @@
 		9F1F78D824D9CEEA00368035 = {
 			isa = PBXGroup;
 			children = (
-				9F6B5F5124DB63D0000B238B /* airpods-pro.entitlements */,
-				9F1F78FD24D9E36C00368035 /* src */,
+				9F4ADA5724DC96A9009CC517 /* airpods-pro-core */,
+				9F4ADA7524DC9CC1009CC517 /* airpods-pro */,
+				9F4ADA9724DCA7AB009CC517 /* airpods-pro-core-tests */,
 				9F1F78E224D9CEEA00368035 /* Products */,
+				9F4ADA6424DC9A29009CC517 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		9F1F78E224D9CEEA00368035 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9F1F78E124D9CEEA00368035 /* airpods-pro */,
+				9F4ADA5624DC96A9009CC517 /* airpods_pro_core.framework */,
+				9F4ADA7424DC9CC1009CC517 /* airpods-pro */,
+				9F4ADA9624DCA7AB009CC517 /* airpods-pro-core-tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9F1F78FD24D9E36C00368035 /* src */ = {
+		9F4ADA5724DC96A9009CC517 /* airpods-pro-core */ = {
 			isa = PBXGroup;
 			children = (
-				9F1F78EB24D9CF6500368035 /* IOBluetooth-Private.h */,
-				9F1F78E424D9CEEA00368035 /* main.swift */,
-				9F1F790024D9E3E800368035 /* airpods-pro-Bridging-Header.h */,
+				9F4ADA5824DC96A9009CC517 /* airpods_pro_core.h */,
+				9F4ADA5924DC96A9009CC517 /* Info.plist */,
+				9F4ADA6024DC9799009CC517 /* Commands.swift */,
+				9F4ADA6224DC97C3009CC517 /* IOBluetooth-Private.h */,
 			);
-			path = src;
+			path = "airpods-pro-core";
+			sourceTree = "<group>";
+		};
+		9F4ADA6424DC9A29009CC517 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9F4ADA7524DC9CC1009CC517 /* airpods-pro */ = {
+			isa = PBXGroup;
+			children = (
+				9F4ADA7624DC9CC1009CC517 /* main.swift */,
+			);
+			path = "airpods-pro";
+			sourceTree = "<group>";
+		};
+		9F4ADA9724DCA7AB009CC517 /* airpods-pro-core-tests */ = {
+			isa = PBXGroup;
+			children = (
+				9F4ADA9824DCA7AB009CC517 /* CommandsTest.swift */,
+				9F4ADA9A24DCA7AB009CC517 /* Info.plist */,
+			);
+			path = "airpods-pro-core-tests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		9F4ADA5124DC96A9009CC517 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F4ADA6324DC97C3009CC517 /* IOBluetooth-Private.h in Headers */,
+				9F4ADA5A24DC96A9009CC517 /* airpods_pro_core.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		9F1F78E024D9CEEA00368035 /* airpods-pro */ = {
+		9F4ADA5524DC96A9009CC517 /* airpods-pro-core */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9F1F78E824D9CEEA00368035 /* Build configuration list for PBXNativeTarget "airpods-pro" */;
+			buildConfigurationList = 9F4ADA5B24DC96A9009CC517 /* Build configuration list for PBXNativeTarget "airpods-pro-core" */;
 			buildPhases = (
-				9F1F78DD24D9CEEA00368035 /* Sources */,
-				9F1F78DE24D9CEEA00368035 /* Frameworks */,
-				9F1F78DF24D9CEEA00368035 /* CopyFiles */,
+				9F4ADA5124DC96A9009CC517 /* Headers */,
+				9F4ADA5224DC96A9009CC517 /* Sources */,
+				9F4ADA5324DC96A9009CC517 /* Frameworks */,
+				9F4ADA5424DC96A9009CC517 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "airpods-pro";
+			name = "airpods-pro-core";
 			packageProductDependencies = (
-				9F1F790224D9E5C800368035 /* ArgumentParser */,
+				9F4ADA6524DC9A29009CC517 /* ArgumentParser */,
 			);
-			productName = "airpod-mode-switcher";
-			productReference = 9F1F78E124D9CEEA00368035 /* airpods-pro */;
+			productName = "airpods-pro-core";
+			productReference = 9F4ADA5624DC96A9009CC517 /* airpods_pro_core.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9F4ADA7324DC9CC1009CC517 /* airpods-pro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9F4ADA7824DC9CC1009CC517 /* Build configuration list for PBXNativeTarget "airpods-pro" */;
+			buildPhases = (
+				9F4ADA7024DC9CC1009CC517 /* Sources */,
+				9F4ADA7124DC9CC1009CC517 /* Frameworks */,
+				9F4ADA7224DC9CC1009CC517 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9F4ADA8324DCA2D9009CC517 /* PBXTargetDependency */,
+			);
+			name = "airpods-pro";
+			productName = "airpods-pro";
+			productReference = 9F4ADA7424DC9CC1009CC517 /* airpods-pro */;
 			productType = "com.apple.product-type.tool";
+		};
+		9F4ADA9524DCA7AB009CC517 /* airpods-pro-core-tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9F4ADA9E24DCA7AB009CC517 /* Build configuration list for PBXNativeTarget "airpods-pro-core-tests" */;
+			buildPhases = (
+				9F4ADA9224DCA7AB009CC517 /* Sources */,
+				9F4ADA9324DCA7AB009CC517 /* Frameworks */,
+				9F4ADA9424DCA7AB009CC517 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9F4ADA9D24DCA7AB009CC517 /* PBXTargetDependency */,
+			);
+			name = "airpods-pro-core-tests";
+			productName = "airpods-pro-core-tests";
+			productReference = 9F4ADA9624DCA7AB009CC517 /* airpods-pro-core-tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -103,9 +225,14 @@
 				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = "Elias Jordan";
 				TargetAttributes = {
-					9F1F78E024D9CEEA00368035 = {
+					9F4ADA5524DC96A9009CC517 = {
 						CreatedOnToolsVersion = 11.6;
-						LastSwiftMigration = 1160;
+					};
+					9F4ADA7324DC9CC1009CC517 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+					9F4ADA9524DCA7AB009CC517 = {
+						CreatedOnToolsVersion = 11.6;
 					};
 				};
 			};
@@ -125,21 +252,69 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9F1F78E024D9CEEA00368035 /* airpods-pro */,
+				9F4ADA5524DC96A9009CC517 /* airpods-pro-core */,
+				9F4ADA7324DC9CC1009CC517 /* airpods-pro */,
+				9F4ADA9524DCA7AB009CC517 /* airpods-pro-core-tests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		9F4ADA5424DC96A9009CC517 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F4ADA9424DCA7AB009CC517 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		9F1F78DD24D9CEEA00368035 /* Sources */ = {
+		9F4ADA5224DC96A9009CC517 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F1F78E524D9CEEA00368035 /* main.swift in Sources */,
+				9F4ADA6124DC9799009CC517 /* Commands.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F4ADA7024DC9CC1009CC517 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F4ADA7724DC9CC1009CC517 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F4ADA9224DCA7AB009CC517 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F4ADA9924DCA7AB009CC517 /* CommandsTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9F4ADA8324DCA2D9009CC517 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9F4ADA5524DC96A9009CC517 /* airpods-pro-core */;
+			targetProxy = 9F4ADA8224DCA2D9009CC517 /* PBXContainerItemProxy */;
+		};
+		9F4ADA9D24DCA7AB009CC517 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9F4ADA5524DC96A9009CC517 /* airpods-pro-core */;
+			targetProxy = 9F4ADA9C24DCA7AB009CC517 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		9F1F78E624D9CEEA00368035 /* Debug */ = {
@@ -255,47 +430,127 @@
 			};
 			name = Release;
 		};
-		9F1F78E924D9CEEA00368035 /* Debug */ = {
+		9F4ADA5C24DC96A9009CC517 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "airpods-pro.entitlements";
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = DR2A97FQ8L;
-				DYLIB_COMPATIBILITY_VERSION = "";
-				DYLIB_CURRENT_VERSION = "";
-				DYLIB_INSTALL_NAME_BASE = "";
-				ENABLE_HARDENED_RUNTIME = YES;
-				LD_RUNPATH_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "src/airpods-pro-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "airpods-pro-core/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.elijordan.airpods-pro-core";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
-				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		9F1F78EA24D9CEEA00368035 /* Release */ = {
+		9F4ADA5D24DC96A9009CC517 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "airpods-pro.entitlements";
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = DR2A97FQ8L;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "airpods-pro-core/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.elijordan.airpods-pro-core";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9F4ADA7924DC9CC1009CC517 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DR2A97FQ8L;
-				DYLIB_COMPATIBILITY_VERSION = "";
-				DYLIB_CURRENT_VERSION = "";
-				DYLIB_INSTALL_NAME_BASE = "";
 				ENABLE_HARDENED_RUNTIME = YES;
-				LD_RUNPATH_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.elijordan.airpods-pro";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "src/airpods-pro-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		9F4ADA7A24DC9CC1009CC517 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DR2A97FQ8L;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.elijordan.airpods-pro";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		9F4ADA9F24DCA7AB009CC517 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = DR2A97FQ8L;
+				INFOPLIST_FILE = "airpods-pro-core-tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.elijordan.airpods-pro-core-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		9F4ADAA024DCA7AB009CC517 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = DR2A97FQ8L;
+				INFOPLIST_FILE = "airpods-pro-core-tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.elijordan.airpods-pro-core-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -311,11 +566,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9F1F78E824D9CEEA00368035 /* Build configuration list for PBXNativeTarget "airpods-pro" */ = {
+		9F4ADA5B24DC96A9009CC517 /* Build configuration list for PBXNativeTarget "airpods-pro-core" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9F1F78E924D9CEEA00368035 /* Debug */,
-				9F1F78EA24D9CEEA00368035 /* Release */,
+				9F4ADA5C24DC96A9009CC517 /* Debug */,
+				9F4ADA5D24DC96A9009CC517 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9F4ADA7824DC9CC1009CC517 /* Build configuration list for PBXNativeTarget "airpods-pro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F4ADA7924DC9CC1009CC517 /* Debug */,
+				9F4ADA7A24DC9CC1009CC517 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9F4ADA9E24DCA7AB009CC517 /* Build configuration list for PBXNativeTarget "airpods-pro-core-tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F4ADA9F24DCA7AB009CC517 /* Debug */,
+				9F4ADAA024DCA7AB009CC517 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -334,7 +607,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		9F1F790224D9E5C800368035 /* ArgumentParser */ = {
+		9F4ADA6524DC9A29009CC517 /* ArgumentParser */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9F1F790124D9E5C800368035 /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
 			productName = ArgumentParser;
