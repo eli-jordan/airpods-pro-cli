@@ -1,4 +1,5 @@
 
+import AMCoreAudio
 import ArgumentParser
 import Foundation
 import IOBluetooth
@@ -42,10 +43,11 @@ enum ListeningMode: String, CaseIterable, ExpressibleByArgument {
  */
 struct AirPodProDevice {
    let underlying: IOBluetoothDevice
+
    let name: String
    let mode: ListeningMode
    let state: ConnectionState
-   
+
    // Create a new AirPodProDevice instance based on the provided IOBlueToothDevice
    static func from(_ device: IOBluetoothDevice) -> AirPodProDevice {
       let state = device.isConnected() ? ConnectionState.Connected : ConnectionState.Disconnected
@@ -69,7 +71,6 @@ struct AirPodProDevice {
  * Responsible for formatting the device list for output to the console.
  */
 struct AirPodProDeviceList {
-   
    // Format the list of devices as a textual table for output to the console
    static func formatAsText(_ devices: [AirPodProDevice]) -> String {
       let header = asTextRow(name: "Name", state: "Connection State", mode: "Listening Mode")
@@ -106,45 +107,72 @@ struct AirPodProDeviceList {
 }
 
 /**
- * Handles the 'set-mode' command, which sets the listening mode for a named
+ * Handles the 'activate' command, which sets the listening mode for a named
  * AirPod Pro device.
  */
-func runSetModeCommand(deviceName: String, mode: ListeningMode) {
+func runActivateCommand(deviceName: String, inMode: ListeningMode, onChannel: AudioChannel) {
    let device = AirPodProDevice.findAll().filter { $0.name == deviceName }.first
    if device == nil {
       print("There are no AirpodPro devices named \(deviceName) available")
    } else {
       turnOnBluetoothIfNeeded()
       let btDevice = device!.underlying
-      if(device!.state == .Disconnected) {
+      if device!.state == .Disconnected {
          btDevice.openConnection()
       }
-      btDevice.listeningMode = mode.codeValue()
+      btDevice.listeningMode = inMode.codeValue()
+
+      // Since we may have just connected to the bluetooth device
+      // We poll the audio device list, until the device we connected
+      // to is available, so that we can use it as input / output
+      waitFor(timeout: 5) {
+         AudioDevice.allDevices().filter { $0.name == deviceName }.count > 0
+      }
+
+      let audioDevices = AudioDevice.allDevices().filter { $0.name == deviceName }
+      audioDevices.forEach { device in
+         if device.isOutputOnlyDevice() {
+            device.setAsDefaultOutputDevice()
+         } else if device.isInputOnlyDevice() {
+            device.setAsDefaultInputDevice()
+         }
+      }
    }
 }
 
+func waitFor(timeout: UInt32, _ condition: () -> Bool) {
+   print("Running waitFor")
+   var timeWaited: UInt32 = 0
+   let interval: UInt32 = 200000 // 0.2 seconds as microseconds
+   let timeoutMicros = timeout * 1000 * 1000
+   while !condition() {
+      usleep(interval)
+      timeWaited += interval
+      if timeWaited > timeoutMicros {
+         fatalError("Error: Timedout after \(timeout) seconds")
+      }
+   }
+}
+
+/**
+ * Turns on bluetooth if it is not already turned on.
+ */
 func turnOnBluetoothIfNeeded() {
-    guard let bluetoothHost = IOBluetoothHostController.default(),
-    bluetoothHost.powerState != kBluetoothHCIPowerStateON else { return }
+   guard let bluetoothHost = IOBluetoothHostController.default(),
+      bluetoothHost.powerState != kBluetoothHCIPowerStateON else { return }
 
-    // Definitely not App Store safe
-    if let iobluetoothClass = NSClassFromString("IOBluetoothPreferences") as? NSObject.Type {
-        let obj = iobluetoothClass.init()
-        let selector = NSSelectorFromString("setPoweredOn:")
-        if (obj.responds(to: selector)) {
-            obj.perform(selector, with: 1)
-        }
-    }
+   // Definitely not App Store safe
+   if let iobluetoothClass = NSClassFromString("IOBluetoothPreferences") as? NSObject.Type {
+      let obj = iobluetoothClass.init()
+      let selector = NSSelectorFromString("setPoweredOn:")
+      if obj.responds(to: selector) {
+         obj.perform(selector, with: 1)
+      }
+   }
 
-    var timeWaited : UInt32 = 0
-    let interval : UInt32 = 200000 // in microseconds
-    while (bluetoothHost.powerState != kBluetoothHCIPowerStateON) {
-        usleep(interval)
-        timeWaited += interval
-        if (timeWaited > 5000000) {
-            exit(-2)
-        }
-    }
+   waitFor(timeout: 5) {
+      bluetoothHost.powerState == kBluetoothHCIPowerStateON
+   }
 }
 
 /**
@@ -167,20 +195,31 @@ enum OutputFormat: String, CaseIterable, ExpressibleByArgument {
    case Json
 }
 
+enum AudioChannel: String, CaseIterable, ExpressibleByArgument {
+   case Input
+   case Output
+   case Both
+}
+
 /**
  * Defines the CLI, and delegates command execution to the above handlers.
  */
 public struct AirpodsProCommandParser: ParsableCommand {
-   public init() { }
+   public init() {}
    public static let configuration = CommandConfiguration(
       commandName: "airpods-pro",
       abstract: "Control available AirPod Pro devices",
-      subcommands: [List.self, SetMode.self]
+      subcommands: [List.self, Activate.self]
    )
 
    struct List: ParsableCommand {
       static let configuration = CommandConfiguration(
-         abstract: "List available AirPod Pro devices"
+         abstract: "List available AirPod Pro devices",
+         discussion: """
+         This will list all bluetooth devices that support active noise cancellation. This
+         is used as a proxy for the device being AirPod Pros. The device name, current
+         listening mode and whether its connected will be output.
+         """
       )
 
       @Option(help: "The format of the generated results. Options are 'Text' and 'Json'")
@@ -191,20 +230,29 @@ public struct AirpodsProCommandParser: ParsableCommand {
       }
    }
 
-   struct SetMode: ParsableCommand {
+   struct Activate: ParsableCommand {
       static let configuration = CommandConfiguration(
-         abstract: "Set the listening mode of a specified AirPod Pro device"
+         abstract: "Activate a named AirPods Pro device",
+         discussion: """
+         This will perform all the steps necessary to activate the specified device.
+         - If bluetooth is turned off, it will be turned on
+         - If the device is not connected, it will be connected
+         - The listening mode of the device will be set
+         - The default audio input and/or output will be set to the device
+         """
       )
 
       @Argument(help: "The name of the device")
       var name: String
-      
+
       @Option(help: "The listening mode to set. Options are 'Off', 'NoiseCancellation' and 'Transparency'")
       var mode: ListeningMode
 
+      @Option(help: "Should the device be used for audio input and/or output. Options are 'Input', 'Output' and 'Both'")
+      var audio: AudioChannel = .Both
+
       func run() {
-         runSetModeCommand(deviceName: name, mode: mode)
+         runActivateCommand(deviceName: name, inMode: mode, onChannel: audio)
       }
    }
 }
-

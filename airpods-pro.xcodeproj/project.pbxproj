@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F22DDCA24E1BBB000377E9A /* AMCoreAudio in Frameworks */ = {isa = PBXBuildFile; productRef = 9F22DDC924E1BBB000377E9A /* AMCoreAudio */; };
+		9F22DDCC24E1BBBA00377E9A /* AMCoreAudio in Frameworks */ = {isa = PBXBuildFile; productRef = 9F22DDCB24E1BBBA00377E9A /* AMCoreAudio */; };
 		9F4ADA5A24DC96A9009CC517 /* airpods_pro_core.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F4ADA5824DC96A9009CC517 /* airpods_pro_core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9F4ADA6124DC9799009CC517 /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4ADA6024DC9799009CC517 /* Commands.swift */; };
 		9F4ADA6324DC97C3009CC517 /* IOBluetooth-Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F4ADA6224DC97C3009CC517 /* IOBluetooth-Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -64,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F22DDCA24E1BBB000377E9A /* AMCoreAudio in Frameworks */,
 				9F4ADA6624DC9A29009CC517 /* ArgumentParser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F22DDCC24E1BBBA00377E9A /* AMCoreAudio in Frameworks */,
 				9F4ADA8524DCA44B009CC517 /* airpods_pro_core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,6 +178,7 @@
 			name = "airpods-pro-core";
 			packageProductDependencies = (
 				9F4ADA6524DC9A29009CC517 /* ArgumentParser */,
+				9F22DDC924E1BBB000377E9A /* AMCoreAudio */,
 			);
 			productName = "airpods-pro-core";
 			productReference = 9F4ADA5624DC96A9009CC517 /* airpods_pro_core.framework */;
@@ -193,6 +198,9 @@
 				9F4ADA8324DCA2D9009CC517 /* PBXTargetDependency */,
 			);
 			name = "airpods-pro";
+			packageProductDependencies = (
+				9F22DDCB24E1BBBA00377E9A /* AMCoreAudio */,
+			);
 			productName = "airpods-pro";
 			productReference = 9F4ADA7424DC9CC1009CC517 /* airpods-pro */;
 			productType = "com.apple.product-type.tool";
@@ -247,6 +255,7 @@
 			mainGroup = 9F1F78D824D9CEEA00368035;
 			packageReferences = (
 				9F1F790124D9E5C800368035 /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+				9F22DDC824E1BBB000377E9A /* XCRemoteSwiftPackageReference "AMCoreAudio" */,
 			);
 			productRefGroup = 9F1F78E224D9CEEA00368035 /* Products */;
 			projectDirPath = "";
@@ -604,9 +613,27 @@
 				minimumVersion = 0.2.1;
 			};
 		};
+		9F22DDC824E1BBB000377E9A /* XCRemoteSwiftPackageReference "AMCoreAudio" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rnine/AMCoreAudio";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.4.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9F22DDC924E1BBB000377E9A /* AMCoreAudio */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9F22DDC824E1BBB000377E9A /* XCRemoteSwiftPackageReference "AMCoreAudio" */;
+			productName = AMCoreAudio;
+		};
+		9F22DDCB24E1BBBA00377E9A /* AMCoreAudio */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9F22DDC824E1BBB000377E9A /* XCRemoteSwiftPackageReference "AMCoreAudio" */;
+			productName = AMCoreAudio;
+		};
 		9F4ADA6524DC9A29009CC517 /* ArgumentParser */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9F1F790124D9E5C800368035 /* XCRemoteSwiftPackageReference "swift-argument-parser" */;

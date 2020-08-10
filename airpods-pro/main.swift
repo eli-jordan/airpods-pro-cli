@@ -6,8 +6,7 @@
 //  Copyright © 2020 Elias Jordan. All rights reserved.
 //
 
-import Foundation
 import airpods_pro_core
+import Foundation
 
 AirpodsProCommandParser.main()
-
