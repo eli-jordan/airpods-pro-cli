@@ -4,8 +4,8 @@ A simple CLI for interacting with paired AirPod Pro devices.
 
 ## Usage
 
-```
-./airpods-pro --help
+```bash
+$ airpods-pro --help
 OVERVIEW: Control available AirPod Pro devices
 
 USAGE: airpods-pro <subcommand>
@@ -15,7 +15,7 @@ OPTIONS:
 
 SUBCOMMANDS:
   list                    List available AirPod Pro devices
-  set-mode                Set the listening mode of a specified AirPod Pro device
+  activate                Activate a named AirPods Pro device
 
   See 'airpods-pro help <subcommand>' for detailed help.
 ```
